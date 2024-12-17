@@ -1,0 +1,628 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+
+.contanier {
+  width: 100%;
+  height: 100vh;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Fixe les pseudo-éléments */
+}
+
+.contanier::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  top: 0;
+  left: 0;
+  background-color: #f5b4d6;
+  z-index: 1;
+}
+
+.contanier .hero {
+  height: auto; /* Permet à la hauteur de s'adapter automatiquement */
+  padding: 20px;
+  position: relative;
+  z-index: 10;
+  height: 85vh;
+  width: 75%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(25px);
+  border: 3px solid #f5b4d6;
+  border-radius: 20px;
+  box-shadow: -15px 17px 17px rgba(10, 10, 10, 0.15);
+
+}
+
+.hero nav {
+  display: flex;
+  justify-content: center; /* Centre horizontalement les éléments */
+  align-items: center; /* Centre verticalement les éléments */
+  height: 70px;
+}
+
+.hero nav .logo {
+  color: #c71872;
+  font-size: 45px;
+  font-weight: bold;
+  margin-right: 40px; /* Ajoute un espace après le logo */
+}
+
+.hero nav .nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centre les liens horizontalement */
+  align-items: center; /* Centre les liens verticalement */
+  gap: 20px; /* Espace uniforme entre les liens */
+}
+
+.hero nav .nav-links a {
+  color: black;
+  text-transform: capitalize;
+  transition: 0.3s;
+  white-space: nowrap; /* Évite que les liens passent à la ligne */
+  font-size: 16px; /* Taille standard pour les liens */
+  padding: 5px 10px; /* Ajoute un peu de remplissage pour un meilleur espacement */
+}
+
+.hero nav .nav-links a:hover,
+.hero nav .nav-links #home
+
+{
+  color: #e4698e;
+  font-weight: bold;
+}
+
+
+.hero .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #e4698e;
+  height: 100%; 
+}
+.hero .content .div-text {
+  width: 45%; 
+  text-align: center; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.hero .content .div-img {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+
+}
+.hero .content .div-img img {
+  width: 50%; 
+  border-radius: 15px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .hero {
+    height: auto;
+    padding: 20px;
+  }
+
+  .hero nav .logo {
+    font-size: 30px;
+    flex: 1 100%; /* Prenez toute la ligne sur petits écrans */
+    text-align: center;
+  }
+
+  .hero nav .nav-links {
+    flex: 1 100%;
+    justify-content: center;
+  }
+
+  .hero .content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero .content .div-text {
+    width: 100%;
+    text-align: center;
+    margin-top: 50%;
+    
+
+  }
+
+  .hero .content .div-img {
+    width: 100%;
+    margin-top: 20px;
+
+    
+  }
+  .hero .content .div-img img {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fade-img .5s linear forwards;
+  animation-delay: 2.1s;
+}
+@keyframes fade-img{
+  0%{
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+  
+}
+
+@media screen and (max-width: 480px) {
+  .hero nav .nav-links a {
+    font-size: 14px;
+    margin-left: 10px;
+  }
+
+  .hero nav .logo {
+    font-size: 24px;
+
+}}
+
+
+.hero .content .div-text h1{
+  margin-bottom: 20px;
+  font-size: 50px;
+  color: #f5b4d6;
+}
+.hero .content .div-text h2
+{
+  color: #ca7fa6;
+  font-size:24px ;
+  margin-bottom: 10px;
+}
+.hero .content .div-text h4{
+  color: #775868;
+  margin-bottom: 50px;
+  font-size: 18px;
+  
+}
+.soc-link{
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+
+}
+.soc-link a i {
+  font-size: 25px;
+  cursor: pointer;
+  
+  color: #e4698e;
+  margin-bottom: 20px;
+  transition:0.4s ;
+}
+.soc-link a i:hover{
+  color:#d37fab;
+}
+/*Animation */
+.hero .logo,
+.hero .content .div-text h1,
+.hero .content .div-text h2,
+.hero .content .div-text h4{
+  position: relative;
+  top: 50px;
+  animation: slide-top .5s linear forwards;
+  opacity:0 ;
+}
+
+.hero .logo{
+  animation-delay: 0.2s;
+
+}
+.hero .content .div-text h1{
+  animation-delay: 0.9s;
+}
+.hero .content .div-text h2{
+  animation-delay: 0.4s;
+}
+.hero .content .div-text h4{
+  animation-delay: 0.3s;
+}
+
+
+@keyframes slide-top {
+  0%{
+    top :50px;
+    opacity: 0;
+  }
+  100%{
+    top: 0;
+    opacity: 1;
+  }
+}
+.hero .content .div-img img {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: fade-img .5s linear forwards;
+  animation-delay: 2.1s;
+}
+@keyframes fade-img{
+  0%{
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.date_diplome{
+  color: #d37fab;
+}
+.container {
+  display: flex;
+  flex-direction: row; /* Affiche les éléments horizontalement */
+  justify-content: space-between; /* Espace les éléments */
+}
+.titre_diplome
+{
+  color: #a15d80;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  /*'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;*/
+}
+.sous_titre_diplome
+{
+  color: #cc669b;
+}
+.content_diplome
+{
+  display: flex;
+  justify-content: space-around;
+  
+ 
+}
+.diplome
+{
+  margin-top: 5%;
+  width: 500px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 2px 4px rgba (0,0,0,0.2);
+  margin: 5px;
+  margin-bottom: 50px;
+  }
+.diplome img
+{
+  width: 80%;
+  height: auto;
+ 
+  margin-bottom: 10px;
+  
+  border-color: #775868;
+  border-style: solid;
+  border-width: 4px;
+  border-radius: 0% 0% 0% 0%;
+  box-shadow: 6px 6px 6px  #775868,-6px -6px 6px #775868; 
+
+}
+.content_diplome
+{padding: 16px;
+  display: flex;
+  text-align: center;
+  width: auto;
+  font-size: 23px;
+
+}
+.content_diplome h1{
+  font-size: 20px;
+  margin-bottom: 8px;
+  text-align: center;
+  
+}
+.content_diplome h2 {
+  
+  line-height: 1.3;
+  font-size: 19px;
+}
+
+.content_diplome  h3{
+  
+  line-height: 1.3;
+  font-size: 16px;
+}
+
+.stage
+{
+  width: 500px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 2px 4px rgba (0,0,0,0.2);
+  text-align: center;
+  
+}
+.stage img{
+  margin: 15%;
+  padding: -40px;
+  border: 1px #775868;
+  width: 250px;
+  border-color: #775868;
+  
+  border-width: 4px;
+  border-radius: 15px;
+
+}
+
+#deslab
+{
+  width: 80%;
+  margin: 13.6%;
+}
+
+
+/*Animation */
+
+.diplome_text,
+.left-content,
+.contact-info,
+.app,
+table,
+.competence
+{
+position: static;
+top: 50px;
+animation:  slide-top .9s linear forwards;
+opacity:0 ;
+}
+/* Fin Animation */
+
+/*contact*/
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3px;
+  width: 100%;
+  
+}
+
+.left-content
+{
+  color: rgb(226, 72, 119);
+
+}
+.left-content p ,h3
+{
+  font-size: 30px;
+  letter-spacing: .4px;
+  margin: 5px 0 20px;
+  font-size: 20px;
+}
+.left-content form{
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.left-content form label{
+  font-size: 15px;
+  margin-top: 15px;
+}
+form input , form textarea{
+  border: 1.5px  #e4698e;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 12px;
+}
+textarea:focus{
+  outline: .5px solid #e4698e ;
+}
+.btn
+{
+  background-color: #e4698e;
+  color: #fff;
+  font-weight: 550;
+  padding: 7px 0;
+  margin-top:  50px;
+  cursor: pointer;
+  transition:.3s ;
+  
+
+
+}
+.right-content {
+  display: grid;
+  place-items: center; /* Centre horizontalement et verticalement */
+  /* height:100vh;*/
+}
+
+
+.right-content img{
+  width: 75%;
+  padding: 14px;
+  margin: auto;
+}
+.btn:hover{
+  background:#d37fab;
+}
+.contact-info{
+  display: flex;
+  flex-direction: column;
+  gap :10px;
+  margin-top: 10px;
+
+}
+.contact-info div{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.contact-info div i{
+  font-size: 14px;
+  color: #e4698e;
+}
+.contact-info div span{
+  font-size: 12px;
+  margin-left: 5px;
+}
+.contact-info div span
+{
+  text-align: right;
+  font-size: medium;
+  padding-bottom: 0%;
+
+}
+.competence li
+{
+  color:#775868;
+
+
+}
+.content {
+  display: flex;
+  padding: 0 200px;
+  column-gap: 30px;
+  gap: 20px; /* Espace entre les colonnes */
+  padding: 20px; /* Optionnel, pour ajouter de l'espace autour */
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -4.8%;
+  width: 100%;
+  font-size: small;
+
+}
+.dev{
+  float: left;
+  letter-spacing: .4px;
+  margin-right: 200px; 
+  margin-left: 50px; 
+}
+.dev li
+{
+  margin: 12px;
+}
+.ecrire
+{
+  letter-spacing: .4px;
+  float: right;
+  margin-left: 20px;
+}
+.ecrire li{
+  margin:12px ;
+}
+.mescomp{
+  text-align: center;
+  color: #e4698e;
+  margin: -2%;
+  padding-top: 4%;
+}
+/*quizz*/
+
+.app{
+  background: #ebdde1;
+  width: 90%;
+  max-width: 600px;
+  margin: 10px auto 0;
+  border-radius: 10px;
+  padding: 30px;
+}
+.app h1{
+  font-size: 25px;
+  color:#e4698e;
+  font-weight: 600;
+  border-bottom: 1px solid #333;
+  padding-bottom: 15px;
+}
+.quiz{
+  padding: 15px 0;
+}
+.quiz h2{
+  font-size: 18px;
+  color: #e4698e;
+  font-weight: 600;
+}
+
+.btnq{
+  background: #f9f9f9;
+  color: #333;
+  font-weight: 500;
+  width: 100%;
+  border: 1px solid #222;
+  padding: 10px;
+  text-align: left;
+  border-radius: 4px;
+  cursor: pointer;
+  margin:10% 1;
+  transition:  all 0.3s;
+}
+.btnq:hover:not([disabled]){
+  background: #f5b4d6;
+
+}
+.btn:disabled{
+  cursor: no-drop;
+}
+#next-btn
+{
+  background: #f9f9f9;
+  color: #c71872;
+  font-weight: 500;
+  width: 150px;
+  border: 0;
+  padding: 10px;
+  margin: 20px auto 0;
+  border-radius: 4px;
+  cursor: pointer;
+  display: none;
+}
+
+/*quiz+js*/
+.correct{
+  background: #88dd73;
+  color: white;
+}
+.wrong {
+  background: #e62e2e;
+  color: white;
+}
+
+/*Passion*/
+table {
+  width: 100%;
+  border-collapse: collapse; 
+  margin: 20px auto; /* Centrer le tableau avec un espacement vertical */
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+td {
+  border: 2px solid transparent; 
+  padding: 10px; 
+  text-align: center; /* Centrer le texte et les images */
+  vertical-align: middle; /* Alignement vertical centré */
+}
+
+table img {
+  max-width: 100%; 
+  height: auto; 
+  border-radius: 10px; 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+tr:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.05); 
+}
+
+tr:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.02);}
